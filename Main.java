@@ -4,14 +4,13 @@
 // Uses jsoup in order to obtain tax preparers from IRS website.
 
 /*
-    Remove non-breaking space and replace with whitespace
+    Fixed whitespace issue
+    Fixed input/output line break
 
     Add functionality: print to file instead of console
 
 */
 
-
-import java.awt.*;
 import java.util.*;
 
 import org.jsoup.Jsoup;
@@ -19,16 +18,16 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.io.IOException;
-import java.util.List;
+        import java.io.IOException;
+        import java.util.List;
 
 
-public class Main {
+        public class Main {
 
-    public static void main(String[] args) {
+            public static void main(String[] args) {
 
-        int zip;
-        char sort_type; // user input for sort type
+                int zip;
+                char sort_type; // user input for sort type
 
         List<Tax_Return_Preparer> taxPreparers = new ArrayList<Tax_Return_Preparer>();
 
@@ -36,10 +35,10 @@ public class Main {
         Scanner in = new Scanner(System.in);
 
         do {
-            System.out.println("Please enter a five digit zip code:");
+            System.out.print("Please enter a five digit zip code: ");
 
             while (!in.hasNextInt()) { // catch any invalid non-numeric input
-                System.out.println("Invalid input. Please enter a five digit zip code: ");
+                System.out.print("Invalid input. Please enter a five digit zip code: ");
                 in.next();
             }
 
