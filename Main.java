@@ -11,6 +11,7 @@
 */
 
 
+import java.awt.*;
 import java.util.*;
 
 import org.jsoup.Jsoup;
@@ -19,6 +20,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.util.List;
 
 
 public class Main {
@@ -42,7 +44,7 @@ public class Main {
             }
 
             zip = in.nextInt();
-        } while (zip <= 99 ); // valid zip is 5 digits, however the IRS website allows searches using the first three digits. lowest searchable zip code is therefore '100'
+        } while (zip <= 99 || zip >= 99999); // valid zip is 5 digits, however the IRS website allows searches using the first three digits. lowest searchable zip code is therefore '100'
 
 
         System.out.println("You entered: " +zip);
@@ -64,7 +66,15 @@ public class Main {
                 String Point_of_contact = iterator.next().text();
                 String Telephone = iterator.next().text();
 
+                // Replace all non-breaking space with whitespace
 
+                Name = Name.replaceAll( "\u00a0", " ");
+                Address = Address.replaceAll( "\u00a0", " ");
+                City_State_Zip = City_State_Zip.replaceAll( "\u00a0", " ");
+                Point_of_contact = Point_of_contact.replaceAll("\u00a0", " ");
+
+
+                // Create a new taxPrepares object with the above information
                 taxPreparers.add(new Tax_Return_Preparer(Name, Address, City_State_Zip, Point_of_contact, Telephone)); // each tax preparer is stored as an object containing all relevant information
             }
 

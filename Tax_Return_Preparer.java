@@ -67,7 +67,7 @@ public class Tax_Return_Preparer {
 
     private String splitLastName (String name) {
 
-        String[] tempNameArray = name.split("\u00a0"); // The IRS website uses '&nbsp', a non-breaking space in order to separate the first/middle/last name.
+        String[] tempNameArray = name.split(" "); // Split at whitespace
 
         return ( tempNameArray[tempNameArray.length - 1] ); // return last element of array, in this case - the last name
 
