@@ -3,6 +3,13 @@
 
 // Uses jsoup in order to obtain tax preparers from IRS website.
 
+/*
+    Remove non-breaking space and replace with whitespace
+
+    Add functionality: print to file instead of console
+
+*/
+
 
 import java.util.*;
 
