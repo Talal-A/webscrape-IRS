@@ -3,13 +3,7 @@
 
 // Uses jsoup in order to obtain tax preparers from IRS website.
 
-/*
-    Fixed whitespace issue
-    Fixed input/output line break
 
-    Add functionality: print to file instead of console
-
-*/
 
 import java.io.PrintWriter;
 import java.util.*;
@@ -129,8 +123,9 @@ public class Main {
                     writer.println(t.getTelephone() + ", " + t.getFullName() + ", " + t.getName_Of_Business() + ", " + t.getAddress() + ", " + t.getCity_State_Zip() + "; ");
                 }
             }
-
+            
             System.out.println("\n The tax preparers can be found in 'Tax Preparers.txt' ");
+            writer.close();
 
         } catch (IOException e) {
             System.out.print("An error has occurred. Exiting.");
